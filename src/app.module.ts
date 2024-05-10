@@ -6,6 +6,7 @@ import { UserModule } from './user/user.module';
 import { TaskModule } from './task/task.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { EventsModule } from './events/events.module';
 
 @Module({
   imports: [AuthModule, UserModule, TaskModule, ConfigModule.forRoot({ isGlobal: true, envFilePath: ['.env'] }),
@@ -24,6 +25,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
         entities: [__dirname + '/**/*.entity{.ts,.js}'],
       })
     }),
+    EventsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

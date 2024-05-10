@@ -2,6 +2,7 @@
 LIBRARIES INSTALLED
 ===================
 npm i typeorm @nestjs/typeorm mysql2
+npm i --save @nestjs/typeorm typeorm pg
 npm i class-validator class-transformer
 npm i @nestjs/config
 npm install --save @nestjs/passport passport passport-local

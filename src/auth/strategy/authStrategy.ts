@@ -16,11 +16,6 @@ export class authStrategy extends PassportStrategy(Strategy) {
     }
 
     async validate(payload: { id: number, email: string }) {
-        // const user = await this.prisma.user.findFirst({
-        //     where:{
-        //         id:payload.id,
-        //     }
-        // })
 
         const user = await this.userService.findFirstId(payload)
 
