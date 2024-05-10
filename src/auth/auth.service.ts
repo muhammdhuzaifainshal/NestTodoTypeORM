@@ -17,41 +17,13 @@ export class AuthService {
 
     async signup(body: signupDTO) {
 
-        // const hashedPassword = await argon.hash(body.password);
-
-        // try {
-        //     const user = await this.prisma.user.create({
-        //         data: {
-        //             Name: body.name,
-        //             email: body.email,
-        //             password: hashedPassword
-        //         }
-        //     });
-
-        //     return this.token(user.id, user.email);
-
-        // } catch (error) {
-        //     // @unique email (email should be unique) errors are not catched by app automatically handle here 
-        //     if (error instanceof PrismaClientKnownRequestError) {
-        //         if (error.code === 'P2002') {
-        //             // the above error code is for duplication
-        //             throw new ForbiddenException('Email already Taken')
-        //         }
-        //     }
-        //     throw error;
-        // }
-
-        return this.userService.userCreate(body)
+        const user = await this.userService.userCreate(body)
+        return this.token(user.id, user.email);
 
     }
 
 
     async signin(body: signinDTO) {
-        // const user = await this.prisma.user.findFirst({
-        //     where: {
-        //         email: body.email
-        //     }
-        // })
 
         const user = await this.userService.findFirst(body);
 

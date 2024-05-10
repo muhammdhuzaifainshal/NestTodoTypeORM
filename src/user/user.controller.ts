@@ -12,7 +12,6 @@ import { ApiBody, ApiHeader, ApiResponse, ApiTags } from '@nestjs/swagger';
 export class UserController {
 
     constructor(private userService: UserService) {
-
     }
 
     @ApiResponse({
