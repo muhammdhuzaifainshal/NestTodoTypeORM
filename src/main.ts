@@ -14,11 +14,11 @@ async function bootstrap() {
     .setTitle('TODO APP with NestJS')
     .setDescription('A simple todo app built with NestJS')
     .setVersion('1.0')
-    // .addBearerAuth()
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, options);
-  SwaggerModule.setup('api-docs', app, document);
+  SwaggerModule.setup('api/docs', app, document);
 
 
   await app.listen(3000);
